@@ -1,2 +1,11 @@
 language: node_js
 node_js: node
+services:
+- mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: oe+fr1MgYDIq3+lDT5EdLHbCj2eircpJQtjp4YNLfARWmzbkB92Z+roq6m+Bm+sgSzOH63bbiF1UVle76t7C/BNqbqv6Fy2PyAOhFwv8LH4viWf/lpwVBqByTWL6JeL1pws8vTTozf0L+QeGk1tzNdr4fWZgq8ABn3QFXlAhFNxAQDLwejYOgDzTtG4Z60ACXWAYn3PVDxsksE9OtRlCwp0yRO4j72zw3kghjXHujNBj8UA8P0zjpLm2szZpXlXD7boBVmK7w3R/D+qCBweYQg+5IFtj8q6p6yZ7SBjgl6tKVB19+cCpfKXZSfGVDpFws5eKsCXiNrPe4TkvXrW5hdzdiYWoTyuzx3QiPtpBjxcdBmar1x2NNN9cwkQm/FQso2Vj4RG6jUvCdbK0MA4VTnywakuNxnaVqgyM4x5/fQszjzx41VrUdEi4aAauggxk+L/sWcBaPzgW2G+W+PLmojk9hLPB+TC6UjvWUJFgbwIx//Bx1y8x5XltJicD73TiWHNd5gn/8iqd2zVpP09C3hJj+YhEBCtZb9Efw60lXNqehjvxeYCTOeM7DJ9N+l2DO+u5HzigWHxcwz7IEhRv5gOvXdmht3S7aVPWgKCbrmF45coaIqtaR+qzKoOgvvBb7AM5+kBBJzOcIdi2sH4Bt9hpQK5y1YhivuVGeq/gWLg=
+  app: https://git.heroku.com/sleep-forest-35523.git
+  on:
+    repo: adabotcon/Quotes
