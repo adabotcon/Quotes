@@ -20,8 +20,13 @@ function displayAuthorQuotes(data){
 		event.preventDefault();
 		hideClass('.list-authors-form');
 		var author = $(this).text();
-		//make call or get data somehow
-		$('.js-author-quotes').append('<p class="quote-item">' + data.quotes[index].quoteText + '</p>');
+		//search for specific author's quotes
+		$.each(data.quotes, function(event, quote){
+			event.preventDefault();
+			if(quote.quoteAuthor === author){
+				$('.js-author-quotes').append('<p class="quote-item">' + quote.quoteAuthor + '</p>');
+			}
+		})
 		displayClass('.js-author-quotes');
 		displayQuote('.js-author-quotes', author);
 	})
@@ -42,10 +47,15 @@ function getAndDisplaySingleQuotes(){
 function displaySingleQuotes(data){
 	$('.js-search-form').on('submit', function(event){
 		event.preventDefault();
-		for(index in data.quotes){
-			$('.js-search-quote-list-form').append('<p class="quote-item">' + data.quotes[index].quoteText + '</p>');
+		var searchText = $('.js-search-input').val();
+		$.each(data.quotes, function(event, quote){
+			event.preventDefault();
+			if(quote.quoteText.includes(searchText)){
+				$('.js-search-quote-list-form').append('<p class="quote-item">' + quote.quoteText + ', Author:' + quote.quoteAuthor + '</p>');
+			}
 		}
 		displayClass('.js-search-quote-list-form');
+		displayQuote('.js-search-quote-list-form', author);
 	})
 }
 
