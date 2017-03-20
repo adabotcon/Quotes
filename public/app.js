@@ -1,25 +1,69 @@
-function getAuthors(callbackFn){
+function getQuotesAll(callbackFn){
 	setTimeout(function(){
-		callbackFn(MOCK_AUTHORS_UPDATES)
+		callbackFn(MOCK_QUOTES_ALL)
 	}, 100);
 }
-//Keep after implementing
+
 function displayAuthors(data){
-	for(index in data.authors) {
-		$('.js-list-authors').append('<li class="author-item">' + data.authors[index].quoteAuthor + '</li>');
+	for(index in data.quotes) {
+		$('.js-list-authors').append('<li class="author-item">' + data.quotes[index].quoteAuthor + '</li>');
 	}
+	displayAuthorQuotes(data);
 }
 
 function getAndDisplayAuthors(){
-	getAuthors(displayAuthors);
+	getQuotesAll(displayAuthors);
+}
+
+function displayAuthorQuotes(data){
+	$('.author-item').on('click', function(event){
+		event.preventDefault();
+		hideClass('.list-authors-form');
+		var author = $(this).text();
+		//make call or get data somehow
+		$('.js-author-quotes').append('<p class="quote-item">' + data.quotes[index].quoteText + '</p>');
+		displayClass('.js-author-quotes');
+		displayQuote('.js-author-quotes', author);
+	})
+}
+
+function displayQuote(element, author){
+	$('.quote-item').on('click', function(event){
+		event.preventDefault();
+		hideClass(element);
+		$('.js-single-quote').append('<p class="quote-text">' + $(this).text() + `</p> <p class="author-text"> ~ ${author}</p>`);
+	})
+}
+
+function getAndDisplaySingleQuotes(){
+	getQuotesAll(displaySingleQuotes);
+}
+
+function displaySingleQuotes(data){
+	$('.js-search-form').on('submit', function(event){
+		event.preventDefault();
+		for(index in data.quotes){
+			$('.js-search-quote-list-form').append('<p class="quote-item">' + data.quotes[index].quoteText + '</p>');
+		}
+		displayClass('.js-search-quote-list-form');
+	})
+}
+
+function hideClass(element){
+	element.addClass('hidden');
+}
+
+function displayClass(element){
+	element.removeClass('hidden');
 }
 
 $(function(){
 	getAndDisplayAuthors();
+	getAndDisplaySingleQuotes();
 })
 
-var MOCK_AUTHORS_UPDATES = {
-	"authors": [
+var MOCK_QUOTES_ALL = {
+	"quotes": [
 		{
 			"id" : "111"
 			"quoteText": "Build a man a fire, and he'll be warm for a day. Set a man on fire, and he'll be warm for the rest of his life.",
