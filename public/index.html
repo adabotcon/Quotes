@@ -3,6 +3,7 @@
 <head>
 <!-- Link to css -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Diplomata+SC|Lora" rel="stylesheet">
 	<!-- Title and metas -->
 	<title>Quote 'Holics</title>
 	<meta name="Quote 'Holics" content="A website to help store quotes, not only by those that are famous but everyday people around us.">
@@ -17,12 +18,12 @@
 		</div>
 		<div class="search-lists">
 			<p>Search by: </p>
-			<li>
-				<a href="searchPage.html"><ul>Single quotes</ul></a>
-				<a href="authorPage.html"><ul>Author</ul></a>
-			</li>
+			<ul class="search-by-list">
+				<a href="searchPage.html"><li>Single quotes</li></a>
+				<a href="authorPage.html"><li>Author</li></a>
+			</ul>
 		</div>
-		<form class="js-add-quote-form">
+		<form class="js-add-quote-form add-quote-form">
 			<label for="add-quote">Add Quote</label>
 			<input type="text" name="add-quote" class="js-quote">
 			<label for="add-author">Author</label>
@@ -31,7 +32,7 @@
 			<input type="text" name="add-source" class="js-source">
 			<label for="add-sender">Your Name/Pseudonym</label>
 			<input type="text" name="add-sender" class="js-sender">
-			<input type="submit" value="submit" class="js-submit-button">
+			<p><button type="submit" class="js-submit-button submit-button">Submit</button></p>
 		</form>
 	</main>
 	<!-- Scripts for Javascript and Jquery -->

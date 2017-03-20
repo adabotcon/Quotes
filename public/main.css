@@ -1,3 +1,48 @@
+body{
+	color: darkblue;
+	font-family: 'Lora', serif;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+header {
+	background: darkblue;
+	color: white;
+	border: 1px solid darkblue;
+	background-size: cover;
+	padding-left: 10px;
+	font-family: 'Diplomata SC', cursive;
+	/*text-align: center;*/
+}
+
+header h1 a{
+	color: white;
+	font-weight: 400;
+	text-transform: uppercase;
+  }
+
+main {
+  	padding: 50px 20%;
+  }
+
+label {
+  	font-size: 24px;
+  	font-weight: 600;
+  	display: block;
+  }
+
+.add-quote-form{
+  	border: 2px solid darkblue;
+  	text-align: center;
+  	margin: 20px;
+  	padding: 20px;
+  }
+
+.search-by-list > li{
+  	list-style: none;
+  	cursor: pointer;
+  }
+
 .hidden{
 	display: none;
 }
