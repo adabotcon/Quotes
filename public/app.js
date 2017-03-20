@@ -1,7 +1,8 @@
+var QUOTES_URL = '/quotes';
+
 function getQuotesAll(callbackFn){
-	setTimeout(function(){
-		callbackFn(MOCK_QUOTES_ALL)
-	}, 100);
+	console.log('Retrieving quotes');
+	$.getJSON(QUOTES_URL, callbackFn);
 }
 
 function displayAuthors(data){
@@ -79,6 +80,30 @@ function displayEditForm(data){
 
 }
 
+function handleAddQuote(){
+	$('.js-add-quote-form').on('submit', function(event) {
+		event.preventDefault();
+		var quote = $('.js-quote').val();
+		var author = $('.js-author').val();
+		var source = $('.js-source').val();
+		var sender = $('.js-sender').val();
+		addQuote({
+			quoteText: quote,
+			quoteAuthor: author,
+			source: source,
+			sender: sender
+		});
+	});
+}
+
+function handleDeleteQuote(){
+
+}
+
+function handleEditQuote(){
+	
+}
+
 function hideClass(element){
 	element.addClass('hidden');
 }
@@ -87,9 +112,40 @@ function displayClass(element){
 	element.removeClass('hidden');
 }
 
+function addQuote(quote){
+	console.log(`Adding quote: ${quote}`);
+	$.ajax({
+		method: 'POST',
+		url: QUOTES_URL,
+		data: JSON.stringify(quote),
+		dataType: 'json',
+		contentType: 'application/json'
+	});
+}
+
+function deleteQuote(quoteID){
+	console.log('Deleting quote ' + quoteID);
+	$.ajax({
+		url: QUOTES_URL + '/' + recipeId,
+		method: 'DELETE',
+	})
+}
+
+function editQuote(quote){
+	console.log('Updating quote' + quote.id);
+	$.ajax({
+		url: QUOTES_URL + '/' + quote.id,
+		method: 'PUT',
+		data: quote,
+	})
+}
+
 $(function(){
 	getAndDisplayAuthors();
 	getAndDisplaySingleQuotes();
+	handleAddQuote();
+	editQuote();
+	deleteQuote();
 })
 
 var MOCK_QUOTES_ALL = {

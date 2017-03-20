@@ -6,11 +6,11 @@ const jsonParser = bodyParser.json();
 
 const {Quotes} = require('/.models');
 
-router.get('/' (req, res) => {
+router.get('/quotes' (req, res) => {
 	res.json(Quotes.get());
 })
 
-router.post('/', jsonParser, (req, res) => {
+router.post('/quotes', jsonParser, (req, res) => {
 	const requiredFields = ['quoteText', 'quoteAuthor', "source", "sender"];
 	for(let i=0; i < requiredFields.length; i++){
 		const field = requiredFields[i];
@@ -25,7 +25,7 @@ router.post('/', jsonParser, (req, res) => {
 	res.status(201).json(item);
 });
 
-router.put('/:id', jsonParser, (req, res) => {
+router.put('/quotes/:id', jsonParser, (req, res) => {
 	const requiredFields = ['quoteText', 'quoteAuthor', "source", "sender"];
 	for(let i=0; i < requiredFields.length; i++){
 		const field = requiredFields[i];
@@ -53,7 +53,7 @@ router.put('/:id', jsonParser, (req, res) => {
 	res.status(204).json(updatedItem);
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/quotes/:id', (req, res) => {
 	Quotes.delete(req.params.id);
 	console.log(`Delete quote \`${req.params.ID}\``);
 	res.status(204).end();
