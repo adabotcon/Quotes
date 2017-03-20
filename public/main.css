@@ -43,6 +43,14 @@ label {
   	cursor: pointer;
   }
 
+.single-quote{
+	font-family: 'Cabin', 'sans-serif';
+	border: 2px solid darkblue;
+	text-align: center;
+	margin: 20px;
+  	padding: 20px;
+}
+
 .hidden{
 	display: none;
 }
