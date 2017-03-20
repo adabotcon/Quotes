@@ -36,4 +36,18 @@ describe('Users', function() {
         res.should.have.status(200);
         });
       });
+  it('should list users on GET', function() {
+    return chai.request(server)
+      .get('/authorPage.html')
+      .then(function(res) {
+        res.should.have.status(200);
+        });
+      });
+  it('should list users on GET', function() {
+    return chai.request(server)
+      .get('/searchPage.html')
+      .then(function(res) {
+        res.should.have.status(200);
+        });
+      });
   });
