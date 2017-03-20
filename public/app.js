@@ -36,7 +36,19 @@ function displayQuote(element, author){
 	$('.quote-item').on('click', function(event){
 		event.preventDefault();
 		hideClass(element);
-		$('.js-single-quote').append('<p class="quote-text">' + $(this).text() + `</p> <p class="author-text"> ~ ${author}</p>`);
+		$('.js-single-quote').append('<p class="quote-text">' + $(this).text() + `</p> <p class="author-text"> ~ ${author} </p>`);
+		displayClass('.js-single-quote');
+	})
+}
+
+function displayQuoteExtra(element, element2){
+	$('.quote-item').on('click', function(event){
+		event.preventDefault();
+		hideClass(element);
+		hideClass(element2);
+		var textArray = $(this).text().split(":");
+		$('.js-single-quote').append('<p class="quote-text">' + textArray[0] + '</p> <p class="author-text"> ~ ' + textArray[2] + '</p>');
+		displayClass('.js-single-quote');
 	})
 }
 
@@ -51,11 +63,11 @@ function displaySingleQuotes(data){
 		$.each(data.quotes, function(event, quote){
 			event.preventDefault();
 			if(quote.quoteText.includes(searchText)){
-				$('.js-search-quote-list-form').append('<p class="quote-item">' + quote.quoteText + ', Author:' + quote.quoteAuthor + '</p>');
+				$('.js-search-quote-list-form').append('<p class="quote-item">' + quote.quoteText + ' :Author: ' + quote.quoteAuthor + '</p>');
 			}
 		}
 		displayClass('.js-search-quote-list-form');
-		displayQuote('.js-search-quote-list-form', author);
+		displayQuoteExtra('.js-search-quote-list-form', '.js-search-form');
 	})
 }
 
