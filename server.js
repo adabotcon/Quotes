@@ -1,6 +1,11 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 app.use(express.static('public'));
+const searchPageRouter = require('./searchPageRoute');
+const authorPageRouter = require('./authorPageRoute');
+
+app.use('/searchPage', searchPageRouter);
+app.use('/authorPage', authorPageRouter);
 
 
     
