@@ -24,7 +24,7 @@ function displayAuthorQuotes(data){
 		$.each(data.quotes, function(event, quote){
 			event.preventDefault();
 			if(quote.quoteAuthor === author){
-				$('.js-author-quotes').append('<p class="quote-item">' + quote.quoteAuthor + '</p>');
+				$('.js-author-quotes').append('<p class="quote-item">' + quote.quoteText + '</p>');
 			}
 		})
 		displayClass('.js-author-quotes');
