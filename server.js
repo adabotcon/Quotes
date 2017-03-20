@@ -6,9 +6,6 @@ const authorPageRouter = require('./authorPageRoute');
 
 app.use('/searchPage', searchPageRouter);
 app.use('/authorPage', authorPageRouter);
-
-
-    
     
 function runServer() {
   const port = process.env.PORT || 8080;

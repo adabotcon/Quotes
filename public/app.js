@@ -28,20 +28,22 @@ function displayAuthorQuotes(data){
 			}
 		})
 		displayClass('.js-author-quotes');
-		displayQuote('.js-author-quotes', author);
+		displayQuote('.js-author-quotes', author, data);
 	})
 }
 
-function displayQuote(element, author){
+function displayQuote(element, author, data){
 	$('.quote-item').on('click', function(event){
 		event.preventDefault();
 		hideClass(element);
 		$('.js-single-quote').append('<p class="quote-text">' + $(this).text() + `</p> <p class="author-text"> ~ ${author} </p>`);
 		displayClass('.js-single-quote');
+		displayClass('.edit-single-quote');
+		displayEditForm(data);
 	})
 }
 
-function displayQuoteExtra(element, element2){
+function displayQuoteExtra(element, element2, data){
 	$('.quote-item').on('click', function(event){
 		event.preventDefault();
 		hideClass(element);
@@ -49,6 +51,8 @@ function displayQuoteExtra(element, element2){
 		var textArray = $(this).text().split(":");
 		$('.js-single-quote').append('<p class="quote-text">' + textArray[0] + '</p> <p class="author-text"> ~ ' + textArray[2] + '</p>');
 		displayClass('.js-single-quote');
+		displayClass('.edit-single-quote');
+		displayEditForm(data);
 	})
 }
 
@@ -67,8 +71,12 @@ function displaySingleQuotes(data){
 			}
 		}
 		displayClass('.js-search-quote-list-form');
-		displayQuoteExtra('.js-search-quote-list-form', '.js-search-form');
+		displayQuoteExtra('.js-search-quote-list-form', '.js-search-form', data);
 	})
+}
+
+function displayEditForm(data){
+
 }
 
 function hideClass(element){
