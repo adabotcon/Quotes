@@ -3,6 +3,7 @@
 <head>
 <!-- Link to css -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin|Diplomata+SC|Lora" rel="stylesheet">
 	<!-- Title and metas -->
 	<title>Search for Quote</title>
 	<meta name="Search for Quote" content="Search for quotes.">
@@ -14,16 +15,28 @@
 	<main>
 		<form class="js-search-form">
 			<label for="search-input">Search for quote: </label>
-			<input type="search" name="search-input" value="Ex. Do or do not, there is no try...">
+			<input type="search" name="search-input" class="js-search-input" value="Ex. Do or do not, there is no try...">
+			<button type="submit">Search</button>
 		</form>
-		<div class="js-search-quote-list-form">
-			<li class="js-search-quote-list">
+		<div class="js-search-quote-list-form hidden">
+			<ul class="js-search-quote-list">
 				
-			</li>
+			</ul>
 		</div>
-		<div class="-js-single-quote hidden">
+		<div class="js-single-quote single-quote hidden">
 			
 		</div>
+		<div class="edit-single-quote hidden">
+			<button class="js-delete-quote">Delete</button>
+			<button class="js-edit-button">Edit</button>
+		</div>
+		<form class="js-edit-form hidden">
+			<label for="author">Author: </label>
+			<input type="text" name="author">
+			<label for="quote">Quote: </label>
+			<input type="text" name="quote">
+			<label for="source">Source: </label>
+		</form>
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
