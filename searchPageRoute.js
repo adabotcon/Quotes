@@ -6,7 +6,7 @@ const jsonParser = bodyParser.json();
 
 const {Quotes} = require('./models');
 
-router.get('/quotes' (req, res) => {
+router.get('/quotes', (req, res) => {
 	res.json(Quotes.get());
 })
 
@@ -25,11 +25,11 @@ router.post('/quotes', jsonParser, (req, res) => {
 	res.status(201).json(item);
 });
 
-router.put('/quotes/:id', jsonParser, (req, res) => {
+app.put('/quotes/:id', jsonParser, (req, res) => {
 	const requiredFields = ['quoteText', 'quoteAuthor', "source", "sender"];
 	for(let i=0; i < requiredFields.length; i++){
 		const field = requiredFields[i];
-		if (!(field in re.body)) {
+		if (!(field in req.body)) {
 			const message = `Missing \`${field}\` in request body`
 			console.error(message);
 			return res.status(400).send(message);

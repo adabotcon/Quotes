@@ -4,9 +4,9 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const {Quotes} = require('/.models');
+const {Quotes} = require('./models');
 
-router.get('/quotes' (req, res) => {
+router.get('/quotes', (req, res) => {
 	res.json(Quotes.get());
 })
 
