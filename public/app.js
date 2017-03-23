@@ -98,10 +98,24 @@ function handleAddQuote(){
 }
 
 function handleDeleteQuote(){
+	$('.js-delete-button').on('click', function(event) {
+		event.preventDefault();
+		var quote = $('.js-single-quote single-quote').text();
+		//This won't work
+		deleteQuote(quote);
+		window.location.reload();
+	})
 
 }
 
 function handleEditQuote(){
+	$('.js-edit-button').on('click', function(event) {
+		event.preventDefault();
+		var quote = $('.js-single-quote single-quote').text();
+		// This won't work
+		var newQuote = editQuote(quote);
+		$('.js-single-quote single-quote').text(newQuote);
+	})
 
 }
 
@@ -121,7 +135,9 @@ function addQuote(quote){
 		data: JSON.stringify(quote),
 		dataType: 'json',
 		contentType: 'application/json'
-	});
+	}).done(function(data) {
+		console.log("Adding quote to database: " + data.quote.id);
+	})
 }
 
 function deleteQuote(quoteID){
@@ -129,6 +145,8 @@ function deleteQuote(quoteID){
 	$.ajax({
 		url: QUOTES_URL + '/' + recipeId,
 		method: 'DELETE',
+	}).done(function(data) {
+		console.log("Deleting quote" + data.quote.id);
 	})
 }
 
@@ -138,13 +156,16 @@ function editQuote(quote){
 		url: QUOTES_URL + '/' + quote.id,
 		method: 'PUT',
 		data: quote,
+	}).done(function(data) {
+		return data;
+		console.log("Editing quote " + data.quote.id + "with " + quote);
 	})
 }
 
 $(function(){
 	getAndDisplayAuthors();
 	// getAndDisplaySingleQuotes();
-	// handleAddQuote();
-	// editQuote();
-	// deleteQuote();
+	handleAddQuote();
+	editQuote();
+	deleteQuote();
 })
