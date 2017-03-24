@@ -32,14 +32,21 @@
 		</div>
 		<form class="js-edit-form hidden">
 			<label for="author">Author: </label>
-			<input type="text" name="author">
+			<input type="text" name="author" class="js-author-edit-input">
 			<label for="quote">Quote: </label>
-			<input type="text" name="quote">
+			<input type="text" name="quote"  class="js-quote-edit-input">
 			<label for="source">Source: </label>
+			<input type="text" name="source" class="js-source-edit-input">
+			<button class="js-edit-submit">Update Quote</button>
 		</form>
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script type="text/javascript" src="app.js"></script>
+  	<script>
+  		$(function(){
+		getQuotes();
+	})
+  	</script>
 </body>
 </html>
