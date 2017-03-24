@@ -8,8 +8,9 @@ function callAPI(callbackFn){
 	$.getJSON(QUOTES_URL, callbackFn);
 }
 
-function getSingleQuote(callbackFn){
-
+function getSingleQuote(callbackFn, quoteID){
+	console.log('Retrieving single quote');
+	$.getJSON(QUOTES_URL + "/" + quoteID, callbackFn);
 }
 
 function getAuthors(data){
@@ -130,7 +131,7 @@ function handleEditQuote(data, quoteID){
 		$('.js-quote-edit-input').val(originalQuote.quoteText);
 		$('.js-source-edit-input').val(originalQuote.source);
 
-		$('.js-edit-submit').on('click', function(event)) {
+		$('.js-edit-submit').on('click', function(event) {
 			event.preventDefault();
 			var quote = {
 				id: originalQuote.id,
@@ -141,7 +142,7 @@ function handleEditQuote(data, quoteID){
 			};
 			var newQuote = editQuote(quote);
 			$('.js-single-quote single-quote').text(newQuote);
-		}
+		})
 	})
 
 }
@@ -163,7 +164,7 @@ function addQuote(quote){
 		dataType: 'json',
 		contentType: 'application/json'
 	}).done(function(data) {
-		console.log("Adding quote to database: " + data.quote.id);
+		console.log("Adding quote to database: " + data.id);
 	})
 }
 
