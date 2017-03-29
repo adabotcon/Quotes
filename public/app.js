@@ -52,38 +52,48 @@ function displayAuthorQuotes(data){
 function displayQuote(element, author, data){
 	$('.quote-item').on('click', function(event){
 		event.preventDefault();
+		event.stopPropagation();
 		hideClass(element);
 		var quoteID = $(this).attr("data-id");
-		$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + $(this).text() + `</p> <p class="author-text"> ~ ${author} </p>`);
+		data.forEach(function(quote) {
+			if(quote.id === quoteID){
+				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text"> ~ ' + quote.quoteAuthor + '</p><p class="source-text"> (' + quote.source +') </p>');
+			}
+		})
 		displayClass($('.js-single-quote'));
 		displayClass($('.edit-single-quote'));
 		handleEditQuote(data, quoteID);
-		handleEditQuote(data, quoteID);
+		handleDeleteQuote(data, quoteID);
 	})
 }
 
 function displayQuoteExtra(element, element2, data){
 	$('.quote-item').on('click', function(event){
 		event.preventDefault();
+		event.stopPropagation();
 		hideClass(element);
 		hideClass(element2);
 		var quoteID = $(this).attr('data-id');
-		$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' +  + '</p> <p class="author-text"> ~ ' + textArray[2] + '</p>');
+		data.forEach(function(quote) {
+			if(quote.id === quoteID){
+				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text"> ~ ' + quote.quoteAuthor + '</p><p class="source-text"> (' + quote.source +') </p>');
+			}
+		})
 		displayClass($('.js-single-quote'));
 		displayClass($('.edit-single-quote'));
 		handleEditQuote(data, quoteID);
-		handleEditQuote(data, quoteID);
+		handleDeleteQuote(data, quoteID);
 	})
 }
 
 function handleQuoteSearch(data){
 	$('.js-search-form').on('submit', function(event){
+		console.log("Starting search");
 		event.preventDefault();
 		var searchText = $('.js-search-input').val();
-		$.each(data.quotes, function(event, quote){
-			event.preventDefault();
+		data.forEach(function(quote) {
 			if(quote.quoteText.includes(searchText)){
-				$('.js-search-quote-list-form').append('<p class="quote-item" data-id="' + quote.id + '">' + quote.quoteText + ' :Author: ' + quote.quoteAuthor + '</p>');
+				$('.js-search-quote-list-form').append('<p class="quote-item" data-id="' + quote.id + '">' + quote.quoteText + ' ~ ' + quote.quoteAuthor + '</p>');
 			}
 		})
 		displayClass($('.js-search-quote-list-form'));
@@ -122,28 +132,32 @@ function handleEditQuote(data, quoteID){
 		event.preventDefault();
 		hideClass($('.js-single-quote'));
 		hideClass($('.edit-single-quote'));
-		var originalQuote = data.forEach(function(item){
+		data.forEach(function(item){
 			if(item.id === quoteID){
-				return item
+				$('.js-author-edit-input').val(item.quoteAuthor);
+				$('.js-quote-edit-input').val(item.quoteText);
+				$('.js-source-edit-input').val(item.source);
+				displayClass($('.js-edit-form'));
+				createNewQuote(item);
 			}
 		})
-		$('.js-author-edit-input').val(originalQuote.quoteAuthor);
-		$('.js-quote-edit-input').val(originalQuote.quoteText);
-		$('.js-source-edit-input').val(originalQuote.source);
+	})
 
-		$('.js-edit-submit').on('click', function(event) {
+}
+
+function createNewQuote(quote){
+	$('.js-edit-submit').on('click', function(event) {
 			event.preventDefault();
-			var quote = {
-				id: originalQuote.id,
+			var editedQuote = {
+				id: quote.id,
 				quoteText: $('.js-quote-edit-input').val(),
 				quoteAuthor: $('js-author-edit-input').val(),
 				source: $('.js-source-edit-input').val(),
-				sender: originalQuote.sender
+				sender: quote.sender
 			};
-			var newQuote = editQuote(quote);
-			$('.js-single-quote single-quote').text(newQuote);
+
+			editQuote(editedQuote);
 		})
-	})
 
 }
 
@@ -185,9 +199,17 @@ function editQuote(quote){
 		method: 'PUT',
 		data: quote,
 	}).done(function(data) {
-		return data;
-		console.log("Editing quote " + data.quote.id + "with " + quote);
+		displayNewQuote(data);
 	})
+}
+
+function displayNewQuote(data){
+	//NOT WORKING
+	// event.stopPropagation();
+	// 	$('.js-single-quote').append('<p class="quote-text" data-id="' + data.id + '">' + data.quoteText + '</p> <p class="author-text"> ~ ' + data.quoteAuthor + '</p><p class="source-text"> (' + data.source +') </p>');
+	// 	hideClass($('.js-edit-form'));
+	// 	displayClass($('.js-single-quote'));
+	// 	displayClass($('.edit-single-quote'));
 }
 
 
