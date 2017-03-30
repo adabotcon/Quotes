@@ -1,6 +1,5 @@
 body{
 	color: #064a00;
-	font-family: 'Lora', serif;
 	margin: 0;
 	box-sizing: border-box;
 }
@@ -11,15 +10,12 @@ header {
 	border: 1px solid #11cc00;
 	background-size: cover;
 	padding-left: 10px;
-	font-family: 'Diplomata SC', cursive;
 	/*text-align: center;*/
 }
 
-header h1 a{
-	color: white;
-	font-weight: 400;
-	text-transform: uppercase;
-  }
+	a{
+		text-decoration: none;
+	}
 
 main {
   	padding: 50px 20%;
@@ -38,31 +34,18 @@ label {
   	padding: 20px;
   }
 
-.search-by-list > li{
-  	list-style: none;
-  	cursor: pointer;
-  }
-
 .single-quote{
 	font-family: 'Cabin', 'sans-serif';
 	border: 2px solid darkblue;
 	text-align: center;
 	margin: 20px;
-  	padding: 20px;
+  padding: 20px;
 }
 
 .hidden{
 	display: none;
 }
 
-/*font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Condensed', sans-serif;
-font-family: 'Roboto Slab', serif;
-font-family: 'Fira Sans Extra Condensed', sans-serif;
-font-family: 'Fira Sans Condensed', sans-serif;
-font-family: 'Fira Sans', sans-serif;
-font-family: 'Source Serif Pro', serif;
-font-family: 'Source Sans Pro', sans-serif;*/
 
 .text-base-green {
 	color: #11cc00;
@@ -86,6 +69,26 @@ font-family: 'Source Sans Pro', sans-serif;*/
 
 .bg-off-white {
 	background-color: #f2fcf1;
+}
+
+.fira-sans-extra-condensed {
+	font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+.fira-sans-condensed {
+	font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.fira-sans {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.source-serif-pro {
+	font-family: 'Source Serif Pro', serif;
+}
+
+.source-sans-pro {
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 .roboto {
@@ -128,3 +131,41 @@ font-family: 'Source Sans Pro', sans-serif;*/
 .text-center{
 	text-align: center;
 }
+
+.border-dark-green {
+	border: 1px solid #064a00;
+}
+
+.border-base-green {
+	border: 1px solid #11cc00;
+}
+
+.button_padding {
+	padding: 5px 10px; 
+}
+.header-padding{
+  padding: 0 20%;
+}
+
+.cursor{
+	cursor: pointer;
+}
+
+.no-dots{
+	list-style: none;
+}
+
+ul.search-by-list {
+	margin: 0;
+	padding: 0;
+}
+
+ul.search-by-list li {
+	display:inline;
+	list-style: none;
+}
+
+.li-margin {
+	margin: 3px;
+}
+

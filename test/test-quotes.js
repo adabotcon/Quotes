@@ -25,7 +25,7 @@ describe('Quotes', function() {
   // return an ES6 promise or else pass a `done` callback to the
   // test that we call at the end. We prefer the first approach, so
   // we just return the chained `chai.request.get` object.
-  it('should list items on GET', function(done) {
+  it('should list quote on GET', function(done) {
     chai.request(app)
       .get('/quotes')
       .end(function(err, res) {
@@ -41,36 +41,6 @@ describe('Quotes', function() {
       });
     done();
   });
-  // it('should list users on GET', function() {
-  //   return chai.request(server)
-  //     .get('/authorPage.html')
-  //     .end(function(res) {
-  //       res.should.have.status(200);
-  //       res.should.be.json;
-  //       res.body.should.be.a('array');
-  //       res.body.length.should.be.above(0);
-  //       res.body.forEach(function(quote) {
-  //         quote.should.be.a('object');
-  //         quote.should.have.all.keys(
-  //           'id', 'quoteText', 'quoteAuthor', 'sender', 'source')
-  //         });
-  //       });
-  //     });
-  // it('should list users on GET', function() {
-  //   return chai.request(server)
-  //     .get('/searchPage.html')
-  //     .end(function(res) {
-  //       res.should.have.status(200);
-  //       res.should.be.json;
-  //       res.body.should.be.a('array');
-  //       res.body.length.should.be.above(0);
-  //       res.body.forEach(function(quote) {
-  //         quote.should.be.a('object');
-  //         quote.should.have.all.keys(
-  //           'id', 'quoteText', 'quoteAuthor', 'sender', 'source')
-  //         });
-  //       });
-  //     });
   it('should add a quote on POST', function(done){
     const newQuote = {
       quoteText: 'lorem ip some',
@@ -106,7 +76,7 @@ describe('Quotes', function() {
     done();
   });
 
-  it('should update blog posts on PUT', function(done) {
+  it('should update quote on PUT', function(done) {
 
     chai.request(app)
       // first have to get
@@ -128,7 +98,7 @@ describe('Quotes', function() {
       done();
   });
 
-  it('should delete posts on DELETE', function(done) {
+  it('should delete quote on DELETE', function(done) {
     chai.request(app)
       // first have to get
       .get('/quotes')

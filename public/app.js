@@ -29,7 +29,7 @@ function displayAuthors(data){
 	var tempAuthorArray = authorArray.map(quote => quote.quoteAuthor);
 	var uniqueAuthorArray = Array.from(new Set(tempAuthorArray));
 	for(index in uniqueAuthorArray) {
-		$('.js-list-authors').append('<li class="author-item">' + uniqueAuthorArray[index] + '</li>');
+		$('.js-list-authors').append('<li class="author-item cursor li-margin">' + uniqueAuthorArray[index] + '</li>');
 	}
 	displayAuthorQuotes(data);
 }
@@ -41,11 +41,22 @@ function displayAuthorQuotes(data){
 		var author = $(this).text();
 		var authorQuotes = data.filter(quote => quote.quoteAuthor === author);
 		for(index in authorQuotes){
-			$('.js-author-quotes').append('<p class="quote-item" data-id="'+ authorQuotes[index].id + '">' + authorQuotes[index].quoteText + '</p>');
+			$('.js-author-quotes').append('<p class="quote-item cursor source-serif-pro" data-id="'+ authorQuotes[index].id + '">' + authorQuotes[index].quoteText + '</p>');
 		}
-		
+		$('.js-author-title').text(author);
 		displayClass($('.js-author-quotes'));
 		displayQuote($('.js-author-quotes'), author, data);
+	})
+}
+
+function addQuoteFormListener(){
+	$('.js-add-quote-button').on('click', function(event) {
+		event.preventDefault();
+		$('.js-add-quote-form').fadeToggle();
+		$('.js-add-quote-form').on('click', function(event) {
+			displayClass($('.js-add-quote-form'));
+			$('.js-add-quote-form').fadeToggle();
+		})
 	})
 }
 
@@ -87,15 +98,17 @@ function displayQuoteExtra(element, element2, data){
 }
 
 function handleQuoteSearch(data){
-	$('.js-search-form').on('submit', function(event){
+	$('.js-search-form').keypress(function(event){
 		console.log("Starting search");
-		event.preventDefault();
+		// event.preventDefault();
+		// event.stopPropagation();
 		var searchText = $('.js-search-input').val();
-		data.forEach(function(quote) {
+		var results = data.map(quote => {
 			if(quote.quoteText.includes(searchText)){
-				$('.js-search-quote-list-form').append('<p class="quote-item" data-id="' + quote.id + '">' + quote.quoteText + ' ~ ' + quote.quoteAuthor + '</p>');
+				return '<p class="quote-item" data-id="' + quote.id + '">' + quote.quoteText + ' ~ ' + quote.quoteAuthor + '</p>';
 			}
-		})
+		}).join('')
+		$('.js-search-quote-list-form').html(results)
 		displayClass($('.js-search-quote-list-form'));
 		displayQuoteExtra($('.js-search-quote-list-form'), $('.js-search-form'), data);
 	})
@@ -151,11 +164,10 @@ function createNewQuote(quote){
 			var editedQuote = {
 				id: quote.id,
 				quoteText: $('.js-quote-edit-input').val(),
-				quoteAuthor: $('js-author-edit-input').val(),
+				quoteAuthor: $('.js-author-edit-input').val(),
 				source: $('.js-source-edit-input').val(),
 				sender: quote.sender
 			};
-
 			editQuote(editedQuote);
 		})
 
@@ -179,6 +191,7 @@ function addQuote(quote){
 		contentType: 'application/json'
 	}).done(function(data) {
 		console.log("Adding quote to database: " + data.id);
+		window.location.reload();
 	})
 }
 
@@ -197,20 +210,12 @@ function editQuote(quote){
 	$.ajax({
 		url: QUOTES_URL + '/' + quote.id,
 		method: 'PUT',
-		data: quote,
+		data: JSON.stringify(quote),
+		dataType: 'json',
+		contentType: 'application/json'
 	}).done(function(data) {
-		displayNewQuote(data);
+		window.location.reload();
 	})
 }
-
-function displayNewQuote(data){
-	//NOT WORKING
-	// event.stopPropagation();
-	// 	$('.js-single-quote').append('<p class="quote-text" data-id="' + data.id + '">' + data.quoteText + '</p> <p class="author-text"> ~ ' + data.quoteAuthor + '</p><p class="source-text"> (' + data.source +') </p>');
-	// 	hideClass($('.js-edit-form'));
-	// 	displayClass($('.js-single-quote'));
-	// 	displayClass($('.edit-single-quote'));
-}
-
 
 

@@ -3,26 +3,44 @@
 <head>
 <!-- Link to css -->
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<link href="https://fonts.googleapis.com/css?family=Cabin|Diplomata+SC|Lora" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Roboto|Roboto+Condensed|Roboto+Slab|Source+Sans+Pro|Source+Serif+Pro" rel="stylesheet">
 	<!-- Title and metas -->
 	<title>Search by Author</title>
 	<meta name="Search" content="Search for Quotes by Author">
 </head>
 <body>
 	<header>
-		<a href="index.html"><h1>Quote 'Holics</h1></a>
+		<h1><a href="index.html" class="roboto-slab text-off-white text-thin text-large header-padding">Quote 'Holics</a></h1>
+			<div class="search-lists">
+			<ul class="search-by-list text-center">
+				<li class="js-add-quote-button button_padding border-dark-green bg-off-white text-dark-green roboto cursor">Add a Quote</li>
+			</ul>
+		</div>
 	</header>
 	<main>
-		<div class="list-authors-form">
-			<ul class="js-list-authors">
+		<form class="js-add-quote-form add-quote-form border-dark-green bg-off-white text-dark-green hidden">
+			<label for="add-quote">Add a Quote</label>
+			<input type="text" name="add-quote" class="js-quote">
+			<label for="add-author">Author</label>
+			<input type="text" name="add-author" class="js-author">
+			<label for="add-source">Source</label>
+			<input type="text" name="add-source" class="js-source">
+			<label for="add-sender">Your Name/Pseudonym</label>
+			<input type="text" name="add-sender" class="js-sender">
+			<p><button type="submit" class="js-submit-button submit-button button_padding border-base-green bg-dark-green text-off-white">Submit</button></p>
+		</form>
+		<div class="list-authors-form text-dark-green bg-off-white border-dark-green source-sans-pro">
+			<ul class="js-list-authors no-dots">
 			
 			</ul>
 		</div>
-		<div class="js-author-quotes hidden"></div>
-		<div class="js-single-quote single-quote hidden"></div>
+		<div class="js-author-quotes hidden">
+			<h2 class="js-author-title text-dark-green source-serif-pro"></h2>
+		</div>
+		<div class="js-single-quote single-quote hidden border-dark-green text-dark-green bg-off-white fira-sans"></div>
 		<div class="edit-single-quote hidden">
-			<button class="js-delete-button bg-dark-green text-off-white text-medium">Delete</button>
-			<button class="js-edit-button bg-dark-green text-off-white text-medium">Edit</button>
+			<button class="js-delete-button bg-off-white text-dark-green text-medium cursor">Delete</button>
+			<button class="js-edit-button bg-off-white text-dark-green text-medium cursor">Edit</button>
 		</div>
 		<form class="js-edit-form hidden">
 			<label for="author">Author: </label>
@@ -31,7 +49,7 @@
 			<input type="text" name="quote"  class="js-quote-edit-input">
 			<label for="source">Source: </label>
 			<input type="text" name="source" class="js-source-edit-input">
-			<button class="js-edit-submit">Update Quote</button>
+			<button class="js-edit-submit bg-off-white text-dark-green cursor">Update Quote</button>
 		</form>
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
@@ -40,6 +58,7 @@
   	<script>
   		$(function(){
 		getAuthors();
+		addQuoteFormListener();
 	})
   	</script>
 </body>

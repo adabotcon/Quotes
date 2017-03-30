@@ -10,21 +10,17 @@
 </head>
 <body>
 	<header>
-		<h1 class="roboto-slab text-off-white text-thin text-center text-large">Quote 'Holics</h1>
-	</header>
-	<main>
-		<div class="quote-of-the-day single-quote hidden">
-			<p>Quote of the Day</p>
-		</div>
-		<div class="search-lists">
-			<p>Search by: </p>
-			<ul class="search-by-list">
-				<a href="searchPage.html"><li>Single quotes</li></a>
-				<a href="authorPage.html"><li>Author</li></a>
+		<h1 class="roboto-slab text-off-white text-thin text-large header-padding">Quote 'Holics</h1>
+			<div class="search-lists">
+			<ul class="search-by-list text-center">
+				<li><a href="authorPage.html" class="button_padding border-dark-green bg-off-white text-dark-green roboto">Authors</a></li>
+				<li class="js-add-quote-button button_padding border-dark-green bg-off-white text-dark-green roboto cursor">Add a Quote</li>
 			</ul>
 		</div>
-		<form class="js-add-quote-form add-quote-form">
-			<label for="add-quote">Add Quote</label>
+	</header>
+	<main>
+		<form class="fira-sans-condensed js-add-quote-form add-quote-form border-dark-green bg-off-white text-dark-green hidden">
+			<label for="add-quote">Add a Quote</label>
 			<input type="text" name="add-quote" class="js-quote">
 			<label for="add-author">Author</label>
 			<input type="text" name="add-author" class="js-author">
@@ -32,8 +28,34 @@
 			<input type="text" name="add-source" class="js-source">
 			<label for="add-sender">Your Name/Pseudonym</label>
 			<input type="text" name="add-sender" class="js-sender">
-			<p><button type="submit" class="js-submit-button submit-button">Submit</button></p>
+			<p><button type="submit" class="js-submit-button submit-button button_padding border-base-green bg-dark-green text-off-white">Submit</button></p>
 		</form>
+		<form class="js-search-form text-center">
+			<label for="search-input text-dark-green">Live Search for Quote: </label>
+			<input type="search" name="search-input" class="js-search-input header-padding" placeholder="Ex. Do or do not, there is no try...">
+		</form>
+		<div class="js-search-quote-list-form hidden">
+			<ul class="js-search-quote-list">
+				
+			</ul>
+		</div>
+		<div class="js-single-quote single-quote hidden border-dark-green text-dark-green bg-off-white fira-sans"></div>
+		<div class="edit-single-quote hidden">
+			<button class="js-delete-button bg-off-white text-dark-green text-medium cursor">Delete</button>
+			<button class="js-edit-button bg-off-white text-dark-green text-medium cursor">Edit</button>
+		</div>
+		<form class="js-edit-form hidden">
+			<label for="author">Author: </label>
+			<input type="text" name="author" class="js-author-edit-input">
+			<label for="quote">Quote: </label>
+			<input type="text" name="quote"  class="js-quote-edit-input">
+			<label for="source">Source: </label>
+			<input type="text" name="source" class="js-source-edit-input">
+			<button class="js-edit-submit bg-off-white text-dark-green cursor">Update Quote</button>
+		</form>
+		<div class="quote-of-the-day single-quote hidden">
+			<p>Quote of the Day</p>
+		</div>
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -43,6 +65,8 @@
 		$(function(){
 			// getQuotes();
 			handleAddQuote();
+			getQuotes();
+			addQuoteFormListener();
 		})
 
   	</script>

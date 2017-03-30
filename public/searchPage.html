@@ -3,27 +3,26 @@
 <head>
 <!-- Link to css -->
 	<link rel="stylesheet" type="text/css" href="main.css">
-	<link href="https://fonts.googleapis.com/css?family=Cabin|Diplomata+SC|Lora" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Roboto|Roboto+Condensed|Roboto+Slab|Source+Sans+Pro|Source+Serif+Pro" rel="stylesheet">
 	<!-- Title and metas -->
 	<title>Search for Quote</title>
 	<meta name="Search for Quote" content="Search for quotes.">
 </head>
 <body>
 	<header>
-		<a href="index.html"><h1>Quote 'Holics</h1></a>
+		<h1 class="text-center"><a class="roboto-slab text-off-white text-thin text-large" href="index.html">Quote 'Holics</a></h1>
 	</header>
 	<main>
-		<form class="js-search-form">
-			<label for="search-input">Search for quote: </label>
-			<input type="search" name="search-input" class="js-search-input" value="Ex. Do or do not, there is no try...">
-			<button type="submit">Search</button>
+		<!--<form class="js-search-form text-center">
+			<label for="search-input text-dark-green">Live Search for Quote: </label>
+			<input type="search" name="search-input" class="js-search-input" placeholder="Ex. Do or do not, there is no try...">
 		</form>
 		<div class="js-search-quote-list-form hidden">
 			<ul class="js-search-quote-list">
 				
 			</ul>
-		</div>
-		<div class="js-single-quote single-quote hidden">
+		</div>-->
+		<!--<div class="js-single-quote single-quote hidden">
 			
 		</div>
 		<div class="edit-single-quote hidden">
@@ -38,14 +37,14 @@
 			<label for="source">Source: </label>
 			<input type="text" name="source" class="js-source-edit-input">
 			<button class="js-edit-submit">Update Quote</button>
-		</form>
+		</form>-->
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script type="text/javascript" src="app.js"></script>
   	<script>
   		$(function(){
-		getQuotes();
+		// getQuotes();
 	})
   	</script>
 </body>
