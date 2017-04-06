@@ -9,8 +9,9 @@ header {
 	color: #f2fcf1;
 	border: 1px solid #11cc00;
 	background-size: cover;
-	padding-left: 10px;
 	/*text-align: center;*/
+	width: 100%;
+	float:left;
 }
 
 	a{
@@ -19,6 +20,7 @@ header {
 
 main {
   	padding: 50px 20%;
+		clear: both;
   }
 
 label {
@@ -30,7 +32,6 @@ label {
 .add-quote-form{
   	border: 2px solid darkblue;
   	text-align: center;
-  	margin: 20px;
   	padding: 20px;
   }
 
@@ -38,7 +39,6 @@ label {
 	font-family: 'Cabin', 'sans-serif';
 	border: 2px solid darkblue;
 	text-align: center;
-	margin: 20px;
   padding: 20px;
 }
 
@@ -46,6 +46,17 @@ label {
 	display: none;
 }
 
+.wrapper{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+/* grid */
+.half-width {
+	width: 50%;
+	float: left;
+}
+/* end grid */
 
 .text-base-green {
 	color: #11cc00;
@@ -143,9 +154,9 @@ label {
 .button_padding {
 	padding: 5px 10px; 
 }
-.header-padding{
+/*.header-padding{
   padding: 0 20%;
-}
+}*/
 
 .cursor{
 	cursor: pointer;
@@ -157,7 +168,8 @@ label {
 
 ul.search-by-list {
 	margin: 0;
-	padding: 0;
+	padding: 45px 0 0 0;
+	text-align: right;
 }
 
 ul.search-by-list li {
@@ -165,7 +177,34 @@ ul.search-by-list li {
 	list-style: none;
 }
 
+.search-specific{
+	width: 100%;
+	height: 40px;
+	padding: 3px 50px;
+	font-size: 16px;
+	font-weight: 600;
+	color: darkgrey;
+}
+
 .li-margin {
 	margin: 3px;
 }
 
+blockquote {
+	padding: 0;
+	margin: 0 0 25px 0;
+	font-size: 28px;
+	font-weight: 600;
+	font-style: italic;
+}
+
+cite {
+	font-size: 13px;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.nav-specific{
+	border-radius: 8px;
+	margin: 0 15px;
+}

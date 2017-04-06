@@ -105,7 +105,7 @@ function handleQuoteSearch(data){
 		var searchText = $('.js-search-input').val();
 		var results = data.map(quote => {
 			if(quote.quoteText.includes(searchText)){
-				return '<p class="quote-item" data-id="' + quote.id + '">' + quote.quoteText + ' ~ ' + quote.quoteAuthor + '</p>';
+				return '<blockquote class="quote-item roboto cursor" data-id="' + quote.id + '">' + quote.quoteText + '</blockquote>' + '<cite>' + quote.quoteAuthor + '</cite>';
 			}
 		}).join('')
 		$('.js-search-quote-list-form').html(results)
