@@ -37,6 +37,8 @@ label {
 
 .single-quote {
 	font-family: 'Cabin', 'sans-serif';
+	font-color: #064a00;
+	background-color: white;
 	border: 2px solid darkblue;
 	text-align: center;
   padding: 20px;
@@ -227,10 +229,19 @@ input.search-specific {
   opacity: 0.8;
 }
 
+.cursor-hover:hover {
+	opacity: 0.8;
+}
+
+.italic-item {
+	font-style: italic;
+}
+
 .quote-text {
   font-size: 24px;
   font-family: Roboto Slab;
   font-style: italic;
   padding: 20px 40px;
   opacity: 0.7;
+
 }

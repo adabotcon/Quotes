@@ -28,6 +28,7 @@ function displayAuthors(data){
 	var authorArray = data;
 	var tempAuthorArray = authorArray.map(quote => quote.quoteAuthor);
 	var uniqueAuthorArray = Array.from(new Set(tempAuthorArray));
+	uniqueAuthorArray.sort();
 	for(index in uniqueAuthorArray) {
 		$('.js-list-authors').append('<li class="author-item cursor li-margin">' + uniqueAuthorArray[index] + '</li>');
 	}
@@ -41,7 +42,7 @@ function displayAuthorQuotes(data){
 		var author = $(this).text();
 		var authorQuotes = data.filter(quote => quote.quoteAuthor === author);
 		for(index in authorQuotes){
-			$('.js-author-quotes').append('<p class="quote-item cursor source-serif-pro" data-id="'+ authorQuotes[index].id + '">' + authorQuotes[index].quoteText + '</p>');
+			$('.js-author-quotes').append('<p class="quote-item cursor cursor-hover italic-item source-serif-pro" data-id="'+ authorQuotes[index].id + '">' + authorQuotes[index].quoteText + '</p>');
 		}
 		$('.js-author-title').text(author);
 		displayClass($('.js-author-quotes'));
@@ -68,7 +69,7 @@ function displayQuote(element, author, data){
 		var quoteID = $(this).attr("data-id");
 		data.forEach(function(quote) {
 			if(quote.id === quoteID){
-				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text"> ~ ' + quote.quoteAuthor + '</p><p class="source-text"> (' + quote.source +') </p>');
+				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text text-dark-green"> ~ ' + quote.quoteAuthor + '</p><p class="source-text text-dark-green"> (' + quote.source +') </p>');
 			}
 		})
 		displayClass($('.js-single-quote'));
@@ -87,7 +88,7 @@ function displayQuoteExtra(element, element2, data){
 		var quoteID = $(this).attr('data-id');
 		data.forEach(function(quote) {
 			if(quote.id === quoteID){
-				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text"> ~ ' + quote.quoteAuthor + '</p><p class="source-text"> (' + quote.source +') </p>');
+				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text text-dark-green"> ~ ' + quote.quoteAuthor + '</p><p class="source-text text-dark-green"> (' + quote.source +') </p>');
 			}
 		})
 		displayClass($('.js-single-quote'));
@@ -105,7 +106,7 @@ function handleQuoteSearch(data){
 		var searchText = $('.js-search-input').val();
 		var results = data.map(quote => {
 			if(quote.quoteText.includes(searchText)){
-				return '<blockquote class="quote-item roboto cursor" data-id="' + quote.id + '">' + quote.quoteText + '</blockquote>' + '<cite>' + quote.quoteAuthor + '</cite>';
+				return '<blockquote class="quote-item roboto cursor cursor-hover" data-id="' + quote.id + '">' + quote.quoteText + '</blockquote>' + '<cite>' + quote.quoteAuthor + '</cite>';
 			}
 		}).join('')
 		$('.js-search-quote-list-form').html(results)
