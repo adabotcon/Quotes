@@ -3,6 +3,8 @@ const chaiHttp = require('chai-http');
 
 const {app, runServer, closeServer} = require('../server');
 
+const {TEST_DATABASE_URL} = require('../config.js');
+
 const should = chai.should();
 
 chai.use(chaiHttp);
@@ -10,7 +12,7 @@ chai.use(chaiHttp);
 describe('Quotes', function() {
 
   before(function() {
-    return runServer();
+    return runServer(TEST_DATABASE_URL);
   });
 
   // Close server after these tests run in case
