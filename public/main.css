@@ -4,6 +4,10 @@ body {
 	box-sizing: border-box;
 }
 
+button {
+	border: none;
+}
+
 header {
 	background: #11cc00;
 	color: #f2fcf1;
@@ -31,7 +35,7 @@ label {
 
 .add-quote-form {
   border: 2px solid darkblue;
-  text-align: center;
+  text-align: left;
   padding: 20px;
 }
 
@@ -164,6 +168,11 @@ label {
 	list-style: none;
 }
 
+.label-margin {
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
 ul.search-by-list {
 	margin: 0;
 	padding: 45px 0 0 0;
@@ -192,6 +201,13 @@ ul.edit-by-list li {
 	padding: 3px 50px;
 	font-size: 16px;
 	font-weight: 600;
+	color: darkgrey;
+}
+
+.edit-input {
+	width: 90%;
+	height: 20px;
+	font-size: 16px;
 	color: darkgrey;
 }
 
