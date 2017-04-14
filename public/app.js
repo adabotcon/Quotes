@@ -221,9 +221,9 @@ function editQuote(quote){
 }
 
 function handleBreadcrumbs(){
-	$(element).on('click', function{
-		$()
-	})
+	// $(element).on('click', function(event){
+	// 	$()
+	// })
 }
 
 
