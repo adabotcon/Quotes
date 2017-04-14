@@ -195,6 +195,21 @@ ul.edit-by-list li {
 	list-style: none;
 }
 
+ul.breadcrumb{
+	list-style: none;
+	padding: 8px 16px;
+}
+
+ul.breadcrumb li {
+	display: inline;
+	}
+
+ul.breadcrumb li+li:before {
+	padding: 8px;
+	color: #064a00;
+	content: "/\00a0";
+}
+
 .search-specific{
 	width: 100%;
 	height: 40px;

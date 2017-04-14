@@ -183,7 +183,7 @@ function displayClass(element){
 }
 
 function addQuote(quote){
-	console.log(`Adding quote: ${quote}`);
+	console.log("Adding quote");
 	$.ajax({
 		method: 'POST',
 		url: QUOTES_URL,
@@ -191,7 +191,8 @@ function addQuote(quote){
 		dataType: 'json',
 		contentType: 'application/json'
 	}).done(function(data) {
-		console.log("Adding quote to database: " + data.id);
+		console.log("Quote added");
+		debugger;
 		window.location.reload();
 	})
 }
