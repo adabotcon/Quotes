@@ -39,10 +39,9 @@
 		<h2>Authors</h2>
 		<div>
 			<ul class="breadcrumb">
-				<li><a href="#">Search</a></li>
-				<li><a href="#">Authors List</a></li>
-				<li><a href="#">Author Quotes</a></li>
-				<li><a href="#">Quote</a></li>
+				<li class="hidden js-author-list-crumb"><a href="#">Authors List</a></li>
+				<li class="hidden js-author-quotes-crumb"><a href="#">Author Quotes</a></li>
+				<li class="hidden js-quote-crumb"><a href="#">Quote</a></li>
 			</ul>
 		</div>
 		<div class=" list-authors-form text-dark-green source-sans-pro">
@@ -79,6 +78,7 @@
   		$(function(){
 		getAuthors();
 		addQuoteFormListener();
+		handleBreadcrumbs();
 	})
   	</script>
 </body>
