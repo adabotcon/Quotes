@@ -1,12 +1,23 @@
-@media handheld {
+@media only screen 
+and (min-device-width : 300px) 
+and (max-device-width : 736px) {
 
-    html, body {
-        padding: 3px;
-        margin: 0;
+    .mobile-center {
+        text-align: center;
     }
 
-    * {
-        float: none;
+    .mobile-header {
+        clear: both;
+        width: 100%;
+    }
+
+    .mobile-button {
+        width: 100%;
+        font-size: 40px;
+    }
+
+    .mobile-text-large {
+        font-size: 50px;
     }
 
 }
