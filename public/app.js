@@ -30,7 +30,7 @@ function displayAuthors(data){
 	var uniqueAuthorArray = Array.from(new Set(tempAuthorArray));
 	uniqueAuthorArray.sort();
 	for(index in uniqueAuthorArray) {
-		$('.js-list-authors').append('<li class="author-item cursor li-margin">' + uniqueAuthorArray[index] + '</li>');
+		$('.js-list-authors').append('<li class="author-item cursor li-margin mobile-text-large">' + uniqueAuthorArray[index] + '</li>');
 	}
 	displayAuthorQuotes(data);
 }
@@ -69,7 +69,7 @@ function displayQuote(element, author, data){
 		var quoteID = $(this).attr("data-id");
 		data.forEach(function(quote) {
 			if(quote.id === quoteID){
-				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text text-dark-green"> ~ ' + quote.quoteAuthor + '</p><p class="source-text text-dark-green"> (' + quote.source +') </p>');
+				$('.js-single-quote').append('<p class="quote-text mobile-text-medium" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text text-dark-green"> ~ ' + quote.quoteAuthor + '</p><p class="source-text text-dark-green"> (' + quote.source +') </p>');
 			}
 		})
 		displayClass($('.js-single-quote'));
@@ -88,7 +88,7 @@ function displayQuoteExtra(element, element2, data){
 		var quoteID = $(this).attr('data-id');
 		data.forEach(function(quote) {
 			if(quote.id === quoteID){
-				$('.js-single-quote').append('<p class="quote-text" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text text-dark-green"> ~ ' + quote.quoteAuthor + '</p><p class="source-text text-dark-green"> (' + quote.source +') </p>');
+				$('.js-single-quote').append('<p class="quote-text mobile-text-medium" data-id="' + quoteID + '">' + quote.quoteText + '</p> <p class="author-text text-dark-green"> ~ ' + quote.quoteAuthor + '</p><p class="source-text text-dark-green"> (' + quote.source +') </p>');
 			}
 		})
 		displayClass($('.js-single-quote'));

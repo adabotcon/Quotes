@@ -16,8 +16,16 @@ and (max-device-width : 736px) {
         font-size: 40px;
     }
 
+    .mobile-list {
+        width: 100%;
+    }
+
     .mobile-text-large {
         font-size: 50px;
+    }
+
+    .mobile-text-medium {
+        font-size: 40px;
     }
 
 }

@@ -19,7 +19,7 @@
 				</h1>
 			</div>
 			<div class="search-lists half-width mobile-header">
-				<ul class="search-by-list">
+				<ul class="search-by-list mobile-list">
 					<li class="js-add-quote-button button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-quote-left" aria-hidden="true"></i> Add a Quote</li>
 				</ul>
 			</div>
@@ -35,17 +35,17 @@
 			<input type="text" name="add-source" class="js-source edit-input">
 			<label for="add-sender" class="roboto label-margin">Your Name/Pseudonym</label>
 			<input type="text" name="add-sender" class="js-sender edit-input">
-			<p><button type="submit" class="js-submit-button submit-button button_padding nav-specific roboto cursor bg-dark-green text-off-white">Submit</button></p>
+			<p><button type="submit" class="js-submit-button submit-button button_padding nav-specific roboto cursor bg-dark-green text-off-white mobile-button">Submit</button></p>
 		</form>
-		<h2>Authors</h2>
+		<h2 class="mobile-text-large">Authors</h2>
 		<div>
 			<ul class="breadcrumb">
-				<li class="hidden js-author-list-crumb"><a href="#">Authors List</a></li>
-				<li class="hidden js-author-quotes-crumb"><a href="#">Author Quotes</a></li>
-				<li class="hidden js-quote-crumb"><a href="#">Quote</a></li>
+				<li class="hidden js-author-list-crumb mobile-button"><a href="#">Authors List</a></li>
+				<li class="hidden js-author-quotes-crumb mobile-button"><a href="#">Author Quotes</a></li>
+				<li class="hidden js-quote-crumb mobile-button"><a href="#">Quote</a></li>
 			</ul>
 		</div>
-		<div class=" list-authors-form text-dark-green source-sans-pro row col-12">
+		<div class=" list-authors-form text-dark-green source-sans-pro mobile-text-medium">
 			<ul class="js-list-authors no-dots">
 			
 			</ul>
@@ -54,21 +54,21 @@
 			<h2 class="js-author-title text-dark-green source-serif-pro"></h2>
 		</div>
 		<div class="js-single-quote single-quote hidden text-dark-green fira-sans row"></div>
-		<div class="edit-single-quote hidden row">
+		<div class="edit-single-quote hidden">
 			<ul class="edit-by-list">
-				<li class="js-delete-button button_padding nav-specific bg-off-white text-dark-green roboto cursor"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Delete</li>
-				<li class="js-edit-button button_padding nav-specific bg-off-white text-dark-green roboto cursor"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</li>
+				<li class="js-delete-button button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Delete</li>
+				<li class="js-edit-button button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</li>
 			</ul>
 		</div>
-		<form class="js-edit-form hidden row">
-			<label for="author" class="roboto label-margin">Author: </label>
-			<input type="text" name="author" class="js-author-edit-input header-padding search-specific">
-			<label for="quote" class="roboto label-margin">Quote: </label>
-			<input type="text" name="quote"  class="js-quote-edit-input header-padding search-specific">
-			<label for="source" class="roboto label-margin">Source: </label>
-			<input type="text" name="source" class="js-source-edit-input header-padding search-specific">
+		<form class="js-edit-form hidden">
+			<label for="author" class="roboto label-margin mobile-text-medium">Author: </label>
+			<input type="text" name="author" class="js-author-edit-input header-padding search-specific mobile-text-medium">
+			<label for="quote" class="roboto label-margin mobile-text-medium">Quote: </label>
+			<input type="text" name="quote"  class="js-quote-edit-input header-padding search-specific mobile-text-medium">
+			<label for="source" class="roboto label-margin mobile-text-medium">Source: </label>
+			<input type="text" name="source" class="js-source-edit-input header-padding search-specific mobile-text-medium">
 			<ul class="edit-by-list">
-				<li class="js-edit-submit button_padding nav-specific bg-off-white text-dark-green roboto cursor"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update Quote</li>
+				<li class="js-edit-submit button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update Quote</li>
 			</ul>
 		</form>
 	</main>
