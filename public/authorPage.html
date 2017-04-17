@@ -2,8 +2,8 @@
 <html>
 <head>
 <!-- Link to css -->
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<link rel="stylesheet" type="text/css" href="float-grid.css">
+	<link rel="stylesheet" type="text/css" media="Screen" href="main.css">
+	<link rel="stylesheet" type="text/css" media="handheld" href="float-grid.css">
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Roboto|Roboto+Condensed|Roboto+Slab|Source+Sans+Pro|Source+Serif+Pro" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Title and metas -->
@@ -26,7 +26,7 @@
 		</div>
 	</header>
 	<main class="wrapper">
-		<form class="js-add-quote-form add-quote-form border-dark-green bg-off-white text-dark-green hidden">
+		<form class="js-add-quote-form add-quote-form border-dark-green bg-off-white text-dark-green hidden row">
 			<label for="add-quote" class="roboto label-margin">Add a Quote</label>
 			<input type="text" name="add-quote" class="js-quote edit-input">
 			<label for="add-author" class="roboto label-margin">Author</label>
@@ -45,22 +45,22 @@
 				<li class="hidden js-quote-crumb"><a href="#">Quote</a></li>
 			</ul>
 		</div>
-		<div class=" list-authors-form text-dark-green source-sans-pro">
+		<div class=" list-authors-form text-dark-green source-sans-pro row col-12">
 			<ul class="js-list-authors no-dots">
 			
 			</ul>
 		</div>
-		<div class="js-author-quotes hidden">
+		<div class="js-author-quotes hidden row">
 			<h2 class="js-author-title text-dark-green source-serif-pro"></h2>
 		</div>
-		<div class="js-single-quote single-quote hidden text-dark-green fira-sans"></div>
-		<div class="edit-single-quote hidden">
+		<div class="js-single-quote single-quote hidden text-dark-green fira-sans row"></div>
+		<div class="edit-single-quote hidden row">
 			<ul class="edit-by-list">
 				<li class="js-delete-button button_padding nav-specific bg-off-white text-dark-green roboto cursor"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Delete</li>
 				<li class="js-edit-button button_padding nav-specific bg-off-white text-dark-green roboto cursor"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</li>
 			</ul>
 		</div>
-		<form class="js-edit-form hidden">
+		<form class="js-edit-form hidden row">
 			<label for="author" class="roboto label-margin">Author: </label>
 			<input type="text" name="author" class="js-author-edit-input header-padding search-specific">
 			<label for="quote" class="roboto label-margin">Quote: </label>
