@@ -198,7 +198,7 @@ ul.edit-by-list li {
 
 ul.breadcrumb{
 	list-style: none;
-	padding: 8px 16px;
+	padding: 8px 16px 8px 0;
 }
 
 ul.breadcrumb li {
@@ -221,7 +221,7 @@ ul.breadcrumb li+li:before {
 }
 
 .edit-input {
-	width: 90%;
+	width: 100%;
 	height: 20px;
 	font-size: 16px;
 	color: darkgrey;
@@ -250,8 +250,7 @@ cite {
 }
 
 .nav-specific{
-	border-radius: 8px;
-	margin: 0 15px;
+	margin: 0 15px 0 0;
 }
 
 input.search-specific {

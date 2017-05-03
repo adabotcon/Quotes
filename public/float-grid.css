@@ -28,4 +28,20 @@ and (max-device-width : 736px) {
         font-size: 40px;
     }
 
+    ul.search-by-list li {
+        flex: 0 1 auto;
+        border-radius: 0;
+        display: inline-block;
+    }
+
+    ul.search-by-list {
+        text-align: center;
+        display: flex;
+        padding: 0;
+    }
+
+    .nav-specific {
+        margin: 0;
+    }
+
 }

@@ -54,10 +54,6 @@ function addQuoteFormListener(){
 	$('.js-add-quote-button').on('click', function(event) {
 		event.preventDefault();
 		$('.js-add-quote-form').fadeToggle();
-		$('.js-add-quote-form').on('click', function(event) {
-			displayClass($('.js-add-quote-form'));
-			$('.js-add-quote-form').fadeToggle();
-		})
 	})
 }
 
