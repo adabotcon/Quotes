@@ -3,11 +3,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 const router = express.Router();
 // const searchPageRouter = require('./searchPageRoute');
 const authorPageRouter = require('./authorPageRoute');
 
+app.use(morgan('common'));
 app.use(express.static('public'));
 
 mongoose.Promise = global.Promise;
@@ -74,7 +76,7 @@ app.post('/quotes', jsonParser, (req, res) => {
 });
 
 app.put('/quotes/:id', jsonParser, (req, res) => {
-
+  
   if (!(req.params.id && req.body.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
