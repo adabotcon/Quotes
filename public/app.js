@@ -222,12 +222,12 @@ function editQuote(quote){
 function handleBreadCrumb(data, type, id){
 	if(type === 'author'){
 		$('.js-breadcrumb').append('<li class="hidden js-author-list-crumb cursor cursor-hover mobile-button roboto-slab">Authors List</li>');
-		$('.js-breadcrumb').append('<li class="js-author-quotes-crumb cursor cursor-hover mobile-button roboto-slab" data-author-id="'+ id +'">Author Quotes</li>');
+		// $('.js-breadcrumb').append('<li class="js-author-quotes-crumb cursor cursor-hover mobile-button roboto-slab" data-author-id="'+ id +'">Author Quotes</li>');
 		renderBreadCrumbRoute(data, $('.js-author-list-crumb'), 'author-list');
-		renderBreadCrumbRoute(data, $('.js-author-quotes-crumb'), 'author');
+		// renderBreadCrumbRoute(data, $('.js-author-quotes-crumb'), 'author');
 	} else if (type === 'quote'){
-		$('.js-breadcrumb').append('<li class="js-quote-crumb mobile-button cursor cursor-hover roboto-slab" data-id="'+ id +'">Quote</li>');
-		renderBreadCrumbRoute(data, $('.js-quote-crumb'), 'quote');
+		// $('.js-breadcrumb').append('<li class="js-quote-crumb mobile-button cursor cursor-hover roboto-slab" data-id="'+ id +'">Quote</li>');
+		// renderBreadCrumbRoute(data, $('.js-quote-crumb'), 'quote');
 
 	} else if (type === 'search'){
 		$('.js-breadcrumb').append('<li class="js-search-crumb mobile-button cursor cursor-hover roboto-slab"> Search </li>');
