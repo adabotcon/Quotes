@@ -3,33 +3,91 @@
 <head>
 <!-- Link to css -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="float-grid.css">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Roboto|Roboto+Condensed|Roboto+Slab|Source+Sans+Pro|Source+Serif+Pro" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Title and metas -->
 	<title>Quote 'Holics</title>
 	<meta name="Quote 'Holics" content="A website to help store quotes, not only by those that are famous but everyday people around us.">
 </head>
 <body>
 	<header>
-		<h1>Quote 'Holics</h1>
-	</header>
-	<main>
-		<div class="quote-of-the-day hidden">
+		<div class="wrapper mobile-center">
+			<div class="half-width mobile-header">
+				<h1>
+					<a href="index.html" class="roboto-slab text-off-white text-thin text-large header-padding mobile-text-large">Quote 'Holics</a>
+				</h1>
+			</div>
+			<div class="search-lists half-width mobile-header">
+				<ul class="search-by-list">
+					<li class="button_padding nav-specific mobile-button bg-off-white"><a href="authorPage.html" class="text-dark-green roboto"><i class="fa fa-address-book-o" aria-hidden="true"></i>Authors</a></li>
+					<li class="js-add-quote-button button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-quote-left" aria-hidden="true"></i> Add a Quote</li>
+				</ul>
+			</div>
+		</div>
+	</header>	
+
+	<main class="wrapper">
+		<form class="js-add-quote-form add-quote-form border-dark-green bg-off-white text-dark-green hidden">
+			<label for="add-quote" class="roboto label-margin">Add a Quote</label>
+			<input type="text" name="add-quote" class="js-quote edit-input">
+			<label for="add-author" class="roboto label-margin">Author</label>
+			<input type="text" name="add-author" class="js-author edit-input">
+			<label for="add-source" class="roboto label-margin">Source</label>
+			<input type="text" name="add-source" class="js-source edit-input">
+			<label for="add-sender" class="roboto label-margin">Your Name/Pseudonym</label>
+			<input type="text" name="add-sender" class="js-sender edit-input">
+			<p><button type="submit" class="js-submit-button submit-button button_padding nav-specific roboto cursor bg-dark-green text-off-white mobile-button">Submit</button></p>
+		</form>
+		<div>
+			<ul class="breadcrumb js-breadcrumb">
+				<!-- <li class="hidden js-search-crumb mobile-button roboto-slab"><a href="index.html">Search</a></li>
+				<li class="hidden js-quote-crumb mobile-button roboto-slab">Quote</li> -->
+			</ul>
+		</div>
+		<form class="js-search-form text-center">
+            <label class="search-input text-dark-green roboto mobile-text-medium">Live Search for Quote: </label><br/>
+            <input type="text" name="search-input" class="js-search-input header-padding search-specific mobile-text-medium" placeholder="Ex. Do or do not, there is no try..." autocomplete="off">
+        </form>
+		<div class="js-search-quote-list-form hidden">
+			<ul class="js-search-quote-list mobile-button">
+				
+			</ul>
+		</div>
+		<div class="js-single-quote single-quote hidden text-dark-green fira-sans"></div>
+		<div class="edit-single-quote hidden">
+			<ul class="edit-by-list">
+				<li class="js-delete-button button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Delete</li>
+				<li class="js-edit-button button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</li>
+			</ul>
+		</div>
+		<form class="js-edit-form hidden">
+			<label for="author" class="roboto label-margin mobile-text-medium">Author: </label>
+			<input type="text" name="author" class="js-author-edit-input header-padding search-specific mobile-text-medium">
+			<label for="quote" class="roboto label-margin mobile-text-medium">Quote: </label>
+			<input type="text" name="quote"  class="js-quote-edit-input header-padding search-specific mobile-text-medium">
+			<label for="source" class="roboto label-margin mobile-text-medium">Source: </label>
+			<input type="text" name="source" class="js-source-edit-input header-padding search-specific mobile-text-medium">
+			<ul class="edit-by-list">
+				<li class="js-edit-submit button_padding nav-specific bg-off-white text-dark-green roboto cursor mobile-button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update Quote</li>
+			</ul>
+		</form>
+		<div class="quote-of-the-day single-quote hidden">
 			<p>Quote of the Day</p>
 		</div>
-		<div class="search-lists">
-			<p>Search by: </p>
-			<li>
-				<a href="searchPage.html"><ul>Single quotes</ul></a>
-				<a href="authorPage.html"><ul>Author</ul></a>
-			</li>
-		</div>
-		<form class="js-add-quote-form">
-			<label for="add-quote">Add Quote</label>
-			<input type="text" name="add-quote">
-			<input type="submit" value="submit" class="js-submit-button">
-		</form>
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script type="text/javascript" src="app.js"></script>
+  	<script>
+
+		$(function(){
+			// getQuotes();
+			handleAddQuote();
+			getQuotes();
+			addQuoteFormListener();
+		})
+
+  	</script>
 </body>
 </html>

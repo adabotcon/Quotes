@@ -3,30 +3,49 @@
 <head>
 <!-- Link to css -->
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Fira+Sans+Condensed|Fira+Sans+Extra+Condensed|Roboto|Roboto+Condensed|Roboto+Slab|Source+Sans+Pro|Source+Serif+Pro" rel="stylesheet">
 	<!-- Title and metas -->
 	<title>Search for Quote</title>
 	<meta name="Search for Quote" content="Search for quotes.">
 </head>
 <body>
 	<header>
-		<a href="index.html"><h1>Quote 'Holics</h1></a>
+		<h1 class="text-center"><a class="roboto-slab text-off-white text-thin text-large" href="index.html">Quote 'Holics</a></h1>
 	</header>
 	<main>
-		<form class="js-search-form">
-			<label for="search-input">Search for quote: </label>
-			<input type="search" name="search-input" value="Ex. Do or do not, there is no try...">
+		<!--<form class="js-search-form text-center">
+			<label for="search-input text-dark-green">Live Search for Quote: </label>
+			<input type="search" name="search-input" class="js-search-input" placeholder="Ex. Do or do not, there is no try...">
 		</form>
-		<div class="js-search-quote-list-form">
-			<li class="js-search-quote-list">
+		<div class="js-search-quote-list-form hidden">
+			<ul class="js-search-quote-list">
 				
-			</li>
-		</div>
-		<div class="-js-single-quote hidden">
+			</ul>
+		</div>-->
+		<!--<div class="js-single-quote single-quote hidden">
 			
 		</div>
+		<div class="edit-single-quote hidden">
+			<button class="js-delete-button">Delete</button>
+			<button class="js-edit-button">Edit</button>
+		</div>
+		<form class="js-edit-form hidden">
+			<label for="author">Author: </label>
+			<input type="text" name="author" class="js-author-edit-input">
+			<label for="quote">Quote: </label>
+			<input type="text" name="quote"  class="js-quote-edit-input">
+			<label for="source">Source: </label>
+			<input type="text" name="source" class="js-source-edit-input">
+			<button class="js-edit-submit">Update Quote</button>
+		</form>-->
 	</main>
 	<!-- Scripts for Javascript and Jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script type="text/javascript" src="app.js"></script>
+  	<script>
+  		$(function(){
+		// getQuotes();
+	})
+  	</script>
 </body>
 </html>
