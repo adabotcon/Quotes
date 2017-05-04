@@ -101,8 +101,6 @@ function displayQuoteExtra(element, element2, data){
 function handleQuoteSearch(data){
 	$('.js-search-form').keypress(function(event){
 		console.log("Starting search");
-		// event.preventDefault();
-		// event.stopPropagation();
 		var searchText = $('.js-search-input').val();
 		var results = data.map(quote => {
 			if(quote.quoteText.includes(searchText)){
