@@ -1,4 +1,4 @@
-var QUOTES_URL = 'http://localhost:8080/quotes';
+var QUOTES_URL = 'https://sleepy-forest-35523.herokuapp.com/quotes';
 var state = {
 	quotes: []
 }
