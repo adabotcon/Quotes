@@ -191,7 +191,6 @@ function addQuote(quote){
 		contentType: 'application/json'
 	}).done(function(data) {
 		console.log("Quote added");
-		debugger;
 		window.location.reload();
 	})
 }
