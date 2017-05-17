@@ -287,3 +287,7 @@ input.search-specific {
   opacity: 0.7;
 
 }
+
+.js-author-list-crumb {
+	text-decoration: underline; 
+}
