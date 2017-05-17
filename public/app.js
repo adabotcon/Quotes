@@ -102,7 +102,9 @@ function handleQuoteSearch(data){
 	$('.js-search-form').keydown(function(event){
 		console.log("Starting search");
 		var searchText = $('.js-search-input').val();
+		console.log(searchText);
 		var results = data.map(quote => {
+			console.log(quote)
 			if(quote.quoteText.includes(searchText)){
 				return '<blockquote class="quote-item roboto cursor cursor-hover" data-id="' + quote.id + '">' + quote.quoteText + '</blockquote>' + '<cite>' + quote.quoteAuthor + '</cite>';
 			}
