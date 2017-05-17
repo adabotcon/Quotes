@@ -99,7 +99,7 @@ function displayQuoteExtra(element, element2, data){
 }
 
 function handleQuoteSearch(data){
-	$('.js-search-form').keypress(function(event){
+	$('.js-search-form').keydown(function(event){
 		console.log("Starting search");
 		var searchText = $('.js-search-input').val();
 		var results = data.map(quote => {
@@ -229,8 +229,8 @@ function handleBreadCrumb(data, type, id){
 		// renderBreadCrumbRoute(data, $('.js-quote-crumb'), 'quote');
 
 	} else if (type === 'search'){
-		$('.js-breadcrumb').append('<li class="js-search-crumb mobile-button cursor cursor-hover roboto-slab"> Search </li>');
-		renderBreadCrumbRoute(data, $('.js-search-crumb'), 'search');
+		// $('.js-breadcrumb').append('<li class="js-search-crumb mobile-button cursor cursor-hover roboto-slab"> Search </li>');
+		// renderBreadCrumbRoute(data, $('.js-search-crumb'), 'search');
 	}
 
 }
