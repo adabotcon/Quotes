@@ -101,10 +101,10 @@ function displayQuoteExtra(element, element2, data){
 function handleQuoteSearch(data){
 	$('.js-search-input').on('keyup', function(event){
 		console.log("Starting search");
-		var searchText = $(this).val();
+		var searchText = $(this).val().toLowerCase();
 		console.log(searchText);
 		var results = data.map(quote => {
-			if(quote.quoteText.includes(searchText)){
+			if(quote.quoteText.toLowerCase().includes(searchText)){
 				return '<blockquote class="quote-item roboto cursor cursor-hover" data-id="' + quote.id + '">' + quote.quoteText + '</blockquote>' + '<cite>' + quote.quoteAuthor + '</cite>';
 			}
 		}).join('')
